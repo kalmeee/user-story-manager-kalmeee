@@ -37,5 +37,8 @@ def send():
     query_to_print = UserStory.list_all()
     return render_template('list.html', query=query_to_print)
 
-# db.create_tables([UserStory])
+@app.route('/update/<title>', methods=['GET', 'POST'])
+def update_user_story(title):
+    query = UserStory.get_story_to_update
+    render_template('/form.html', query=query)
 app.run()
